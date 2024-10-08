@@ -4,6 +4,8 @@
 
 ## 이름 : 홍길동 2020123456
 
+## 2021110389 서희정
+
 ## Prac6 Git 협업 실습
 - 프로젝트 repo를 fork하여 fork된 저장소의 코드를 확인한다.
 - fork된 저장소를 git clone 명령어를 사용하여 working directory로 복사한다.
