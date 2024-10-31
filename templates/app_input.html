@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 정보 입력</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .person-block {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>학생 정보 입력</h1>
+    <form action="/result" method="POST" id="studentForm">
+        <div id="personContainer">
+            <div class="person-block">
+                <p>이름: <input type="text" name="name[]" required></p>
+                <p>학번: <input type="text" name="StudentNumber[]" required></p>
+            </div>
+        </div>
+        <button type="button" onclick="addPerson()">추가</button>
+        <button type="submit">제출</button>
+    </form>
+
+    <script>
+        // 새 입력 필드를 추가하는 함수
+        function addPerson() {
+            const container = document.getElementById("personContainer");
+
+            // 새로운 사람 정보를 위한 입력 블록 생성
+            const personBlock = document.createElement("div");
+            personBlock.className = "person-block";
+            personBlock.innerHTML = `
+                <p>이름: <input type="text" name="name[]" required></p>
+                <p>학번: <input type="text" name="StudentNumber[]" required></p>
+            `;
+
+            // 입력 블록을 personContainer에 추가
+            container.appendChild(personBlock);
+        }
+    </script>
+</body>
+</html>
