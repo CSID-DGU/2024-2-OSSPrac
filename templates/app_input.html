@@ -24,6 +24,10 @@
             <div class="person-block">
                 <p>이름: <input type="text" name="name[]" required></p>
                 <p>학번: <input type="text" name="StudentNumber[]" required></p>
+                <p>역할: <select name="role[]">
+                    <option value="팀장">팀장</option>
+                    <option value="팀원">팀원</option>
+                </select>
             </div>
         </div>
         <button type="button" onclick="addPerson()">추가</button>
@@ -41,6 +45,10 @@
             personBlock.innerHTML = `
                 <p>이름: <input type="text" name="name[]" required></p>
                 <p>학번: <input type="text" name="StudentNumber[]" required></p>
+                <p>역할: <select name="role[]">
+                    <option value="팀장">팀장</option>
+                    <option value="팀원">팀원</option>
+                </select>
             `;
 
             // 입력 블록을 personContainer에 추가

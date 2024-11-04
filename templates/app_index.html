@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='app_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>팀 구성원 정보</title>
-    <!-- <style>
+    <!--<style>
         .container {
             display: flex;
             justify-content: center;
@@ -24,13 +24,13 @@
         h1, h3, h5 {
             text-align: center;
         }
-    </style> -->
+    </style>-->
     <script>
         function showContactInfo() {
             alert("긴급전화: 010-1234-5678");
         }
         function openContactPage() {
-            window.open("/contact", "contactPage", "width=300,height=200");
+            window.open("/contact", "contactPage", "width=600,height=400");
         }
         function openInputPage() {
             window.open("/input", "InputPage", "width=800,height=600");
@@ -38,11 +38,12 @@
     </script>
 </head>
 <body>
-    <h1>팀 구성원 정보</h1>
+    <h1>학생 정보 출력</h1>
     <div class="container">
         <div class="student-block">
             <p><strong>이름:</strong> </p>
             <p><strong>학번:</strong> </p>
+            <p><strong>역할:</strong> </p>
         </div>        
     </div>
     <h3> 팀 구성원 정보 입력 페이지 <button onclick="openInputPage()"> 이동 </button> </h3>

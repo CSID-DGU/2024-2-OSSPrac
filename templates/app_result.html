@@ -36,10 +36,11 @@
 <body>
     <h1>학생 정보 출력</h1>
     <div class="container">
-        {% for name, student_number in students %}
+        {% for name, student_number, role in students %}
             <div class="student-block">
                 <p><strong>이름:</strong> {{ name }}</p>
                 <p><strong>학번:</strong> {{ student_number }}</p>
+                <p><strong>역할:</strong> {{ role }}</p>
             </div>
         {% endfor %}
     </div>
