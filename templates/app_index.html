@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='app_style.css') }}">
     <title>팀 구성원 정보</title>
-    <!--<style>
+    <style>
         .container {
             display: flex;
             justify-content: center;
@@ -24,7 +24,7 @@
         h1, h3, h5 {
             text-align: center;
         }
-    </style>-->
+    </style>
     <script>
         function showContactInfo() {
             alert("긴급전화: 010-1234-5678");
@@ -41,9 +41,11 @@
     <h1>학생 정보 출력</h1>
     <div class="container">
         <div class="student-block">
-            <p><strong>이름:</strong> </p>
-            <p><strong>학번:</strong> </p>
             <p><strong>역할:</strong> </p>
+            <p><strong>이름:</strong> </p>
+            <!-- <p><strong>학과:</strong></p> -->
+            <p><strong>학번:</strong> </p>
+            <p><strong>성별:</strong></p>
         </div>        
     </div>
     <h3> 팀 구성원 정보 입력 페이지 <button onclick="openInputPage()"> 이동 </button> </h3>
