@@ -12,6 +12,7 @@ def result():
        result=dict()
        result['Name']=request.form.get('name')
        result['StudentNumber']=request.form.get('StudentNumber')
+       result['Gender'] = request.form.getlist('gender')
        result['languages'] = request.form.getlist('languages')
        result['languages'] =  ','.join(result['languages'])
        return render_template('result.html',result=result)

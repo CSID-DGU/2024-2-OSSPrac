@@ -3,10 +3,22 @@
 <body>
     <form action="/result" method="POST">
         <p>Name <input type='text' name='name'></p>
-        <p><b>* Student Number</b> <input type='text' id='StudentNumber' name='StudentNumber' /></p>
+        <p>Student Number<input type='text' id='StudentNumber' name='StudentNumber' /></p>
+        
+        <p>Gender</p>
+        <p>
+        <label><input type = "radio" value = "Male"  name = "gender"/>Male</label>
+        <label><input type = "radio" value = "Female"  name = "gender"/>Female</label>
+        </p>
+        
         <p> Programming Languages</p>
+        <p>
         <label><input type = "checkbox" value = "Python"  name = "languages"/>Python</label>
         <label><input type = "checkbox" value = "Java" name = "languages"/>Java</label>
+        <label><input type = "checkbox" value = "HTML" name = "languages"/>HTML</label>
+        <label><input type = "checkbox" value = "C++" name = "languages"/>C++</label>
+        </p>
+
         <button type='submit' name='submit' value='submit'>submit</button>
     </form>
 </body>
