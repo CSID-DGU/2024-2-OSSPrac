@@ -22,3 +22,9 @@
 - Remote Repository에 p001 브랜치를 만들고 push한다.
 - Pull Request 명령어를 수행한다.
 - Team Review를 한다.  
+
+
+
+# 건의사항
+- 첫 번째 main page의 변경이 필요할 것 같습니다.
+- 만약 이 포맷으로 진행한다면 색 구성은 제가 해보겠습니다.
