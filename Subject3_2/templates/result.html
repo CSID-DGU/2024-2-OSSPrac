@@ -10,19 +10,84 @@
             justify-content: center;
             gap: 20px;
             padding: 20px;
+            flex-wrap: wrap;
         }
         .student-block {
             background-color: #f9f9f9;
-            padding: 15px;
+            padding: 20px;
             border: 1px solid #ccc;
             border-radius: 8px;
-            width: 200px;
+            width: 250px;
             text-align: center;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
         }
-        h1 {
+        .student-block h3 {
+            margin: 10px 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /*student block속 출력되는 정보들 폰트 변경*/
+        .student-block p.name {
+            font-size: 30px;
+            font-weight: 700;
+            margin: 5px 0;
+            color: #444;
+        }
+        .student-block p.role {
+            font-size: 21px;
+            font-weight: 570;
+            margin: 5px 0;
+            color: #555;
+        }
+        .student-block p.info {
+            margin: 5px 0;
+            color: #777;
+            font-size: 16px;
+        }
+        .student-block p.description {
+            margin-top: 15px;
+            color: #999;
+            font-size: 14px;
+            font-style: italic;
+        }
+        /*여기까지 폰트 변경 항목*/
+
+        /*이미지를 동그랗게*/
+        .student-block img {
+            border-radius: 50%; /* 이미지가 동그랗게 표시됩니다 */
+            object-fit: cover;
+            width: 150px; /* 원하는 크기로 조절하세요 */
+            height: 150px; /* 원하는 크기로 조절하세요 */
+        }
+
+        footer {
+            background-color: #f4953d; /* 주황색 배경 */
+            padding: 10px;
             text-align: center;
+            color: white;
+            font-size: 16px;
         }
+
+        /*왼쪽 위 상단 팀명 출력 관련*/
+        .header-point {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+        }
+        .orange-box {
+            width: 20px;
+            height: 20px;
+            background-color: #f4953d; /* 주황색 */
+            margin-right: 10px;
+        }
+        .header-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        /*여기까지*/
+
     </style>
     <script>
         function showContactInfo() {
@@ -34,16 +99,17 @@
     </script>
 </head>
 <body>
-    <h1>학생 정보 출력</h1>
+    <!--왼쪽 위 팀명 출력-->
+    <div class="header-point">
+        <div class="orange-box"></div>
+        <span class="header-text">OSSPrac Team3 : SourceTong</span>
+    </div>
+
+    <h1 style="text-align: center">학생 정보 출력</h1>
     <div class="container">
         {% for name, major, student_number, role, gender in students %}
             <div class="student-block">
-                <p><strong>역할:</strong> {{ role }}</p>
-                <p><strong>이름:</strong> {{ name }}</p>
-                <p><strong>학과:</strong> {{ major }}</p>
-                <p><strong>학번:</strong> {{ student_number }}</p>
-                <p><strong>성별:</strong> {{ gender }}</p>
-
+                
                 <!--역할과 성별에 따른 사진 출력-->
                 {% if role == '팀장' and gender == '여성' %}
                     <img src="https://i.namu.wiki/i/l9JWhPivO-KKFbsrt4fEwBh-KCMDLsmA1f93kmd_lJLNnPxmZHmU7GoARSDXJJ4atDBU_dDKQcM8s93h-H_PxQ.svg" alt="사진1" width="200" height="200">
@@ -56,12 +122,25 @@
                 {% else %}
                     <p><strong>사진:</strong> 사진이 없습니다.</p>
                 {% endif %}
+
+                <p class="name">이름:</strong> {{ name }}</p>
+                <p class="role">역할:</strong> {{ role }}</p>
+                <p class="info">학과:</strong> {{ major }}</p>
+                <p class="info">학번:</strong> {{ student_number }}</p>
+                <p class="description">성별:</strong> {{ gender }}</p>
+
             </div>
         {% endfor %}
     </div>
     <footer>
-        <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
-            <button onclick="openContactPage()"> 팀 연락정보</button> </h5>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
+                <button onclick="openContactPage()"> 팀 입력정보</button> </h5>
+            <!--누르면 github repo페이지로 이동-->
+            <a href="https://github.com/Seungwoo-JI64/2024-2-OSSPrac-sourcetong-03" target="_blank">
+                <img src="https://blog.kakaocdn.net/dn/GlUAT/btsEndzqV8S/xwC72y8hQ494vepqZUP4k1/img.png" alt="github 로고" style="width: 40px; height: 40px; margin: 0 10px;">
+            </a>
+        </div>
     </footer> 
 </body>
 </html>
