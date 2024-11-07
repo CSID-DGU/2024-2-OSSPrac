@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 정보 입력</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .person-block {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        input[type="text"]:focus {
+            transform: scale(1.5); /* 창을 몇배 크게 확대할것인지 */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        footer {
+            background-color: #f4953d; /* 주황색 배경 */
+            padding: 10px;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        /*왼쪽 위 상단 팀명 출력 관련*/
+        .header-point {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+        }
+        .orange-box {
+            width: 20px;
+            height: 20px;
+            background-color: #f4953d; /* 주황색 */
+            margin-right: 10px;
+        }
+        .header-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        /*여기까지*/
+    </style>
+
+    <script>
+        function showContactInfo() {
+            alert("긴급전화: 010-1234-5678");
+        }
+        function openContactPage() {
+            window.open("/contact", "contactPage", "width=600,height=400");
+        }
+    </script>
+</head>
+<body>
+    <!--왼쪽 위 팀명 출력-->
+    <div class="header-point">
+        <div class="orange-box"></div>
+        <span class="header-text">OSSPrac Team3 : SourceTong</span>
+    </div>
+
+    <h1>학생 정보 입력</h1>
+    <form action="/result" method="POST" id="studentForm">
+        <div id="personContainer">
+            <div class="person-block">
+                <p>역할: <select name="role[]">
+                    <option value="팀장">팀장</option>
+                    <option value="팀원">팀원</option>
+                </select></p>
+                <p>이름: <input type="text" name="name[]" required></p>
+                <p>학과: <input type="text" name="major[]" required></p>
+                <p>학번: <input type="text" name="StudentNumber[]" required></p>
+                <p>성별: <select name="gender[]">
+                    <option value="여성">여성</option>
+                    <option value="남성">남성</option>
+                </select></p>
+            </div>
+        </div>
+        <button type="button" onclick="addPerson()">추가</button>
+        <button type="submit">제출</button>
+    </form>
+
+    <script>
+        // 새 입력 필드를 추가하는 함수
+        function addPerson() {
+            const container = document.getElementById("personContainer");
+
+            // 새로운 사람 정보를 위한 입력 블록 생성
+            const personBlock = document.createElement("div");
+            personBlock.className = "person-block";
+            personBlock.innerHTML = `
+                <p>역할: <select name="role[]">
+                    <option value="팀장">팀장</option>
+                    <option value="팀원">팀원</option>
+                </select></p>
+                <p>이름: <input type="text" name="name[]" required></p>
+                <p>학과: <input type="text" name="major[]" required></p>
+                <p>학번: <input type="text" name="StudentNumber[]" required></p>
+                <p>성별: <select name="gender[]">
+                    <option value="여성">여성</option>
+                    <option value="남성">남성</option>
+                </select></p>
+            `;
+
+            // 입력 블록을 personContainer에 추가
+            container.appendChild(personBlock);
+        }
+    </script>
+
+    <footer>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
+                <button onclick="openContactPage()"> 팀 입력정보</button> </h5>
+            <!--누르면 github repo페이지로 이동-->
+            <a href="https://github.com/Seungwoo-JI64/2024-2-OSSPrac-sourcetong-03" target="_blank">
+                <img src="https://blog.kakaocdn.net/dn/GlUAT/btsEndzqV8S/xwC72y8hQ494vepqZUP4k1/img.png" alt="github 로고" style="width: 40px; height: 40px; margin: 0 10px;">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
