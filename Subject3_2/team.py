@@ -17,13 +17,14 @@ def input():
 @app.route('/result', methods=['POST'])
 def result():
     # 각 학생의 이름과 학번 데이터를 리스트로 받음
-    names = request.form.getlist('name[]')
+    name = request.form.getlist('name[]')
+    major = request.form.getlist('major[]')
     student_numbers = request.form.getlist('StudentNumber[]')
     role = request.form.getlist('role[]')
     gender = request.form.getlist('gender[]')
 
     # 데이터를 템플릿으로 전달하여 출력 페이지 생성
-    return render_template('result.html', students=zip(names, student_numbers,role,gender))
+    return render_template('result.html', students=zip(name, major, student_numbers,role,gender))
 
 @app.route('/contact')
 def contact_info():

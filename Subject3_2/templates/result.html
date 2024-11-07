@@ -36,11 +36,11 @@
 <body>
     <h1>학생 정보 출력</h1>
     <div class="container">
-        {% for name, student_number, role, gender in students %}
+        {% for name, major, student_number, role, gender in students %}
             <div class="student-block">
                 <p><strong>역할:</strong> {{ role }}</p>
                 <p><strong>이름:</strong> {{ name }}</p>
-                <!-- <p><strong>학과:</strong> {{ major }}</p> -->
+                <p><strong>학과:</strong> {{ major }}</p>
                 <p><strong>학번:</strong> {{ student_number }}</p>
                 <p><strong>성별:</strong> {{ gender }}</p>
             </div>
