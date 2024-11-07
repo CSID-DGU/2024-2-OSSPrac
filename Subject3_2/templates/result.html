@@ -46,12 +46,7 @@
             color: #777;
             font-size: 16px;
         }
-        .student-block p.description {
-            margin-top: 15px;
-            color: #999;
-            font-size: 14px;
-            font-style: italic;
-        }
+        
         /*여기까지 폰트 변경 항목*/
 
         /*이미지를 동그랗게*/
@@ -127,7 +122,7 @@
                 <p class="role">역할:</strong> {{ role }}</p>
                 <p class="info">학과:</strong> {{ major }}</p>
                 <p class="info">학번:</strong> {{ student_number }}</p>
-                <p class="description">성별:</strong> {{ gender }}</p>
+                <p class="info">성별:</strong> {{ gender }}</p>
 
             </div>
         {% endfor %}
