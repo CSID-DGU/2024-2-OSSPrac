@@ -44,6 +44,15 @@
             font-size: 18px;
             font-weight: bold;
         }
+
+        /* 제출 버튼 스타일 추가 */
+        input[type=submit] {
+          background-color: #4CAF50; /* 기본 배경색 초록색 */
+          color: white; /* 텍스트 색상 흰색 */
+          border: none; /* 테두리 제거 */
+          padding: 10px 20px; /* 패딩 추가 */
+          cursor: pointer; /* 마우스 커서 포인터로 변경 */
+      }
         /*여기까지*/
     </style>
 
@@ -71,9 +80,9 @@
                     <option value="팀장">팀장</option>
                     <option value="팀원">팀원</option>
                 </select></p>
-                <p>이름: <input type="text" name="name[]" required></p>
-                <p>학과: <input type="text" name="major[]" required></p>
-                <p>학번: <input type="text" name="StudentNumber[]" required></p>
+                <p>이름: <input type="text" name="name[]" style="background-color: #f0f8ff;" required></p>
+                <p>학과: <input type="text" name="major[]" style="background-color: #f0f8ff;" required></p>
+                <p>학번: <input type="text" name="StudentNumber[]" style="background-color: #f0f8ff;" required></p>
                 <p>성별: <select name="gender[]">
                     <option value="여성">여성</option>
                     <option value="남성">남성</option>
@@ -81,7 +90,7 @@
             </div>
         </div>
         <button type="button" onclick="addPerson()">추가</button>
-        <button type="submit">제출</button>
+        <button type="submit" style="background-color: #4CAF50; color: white;">제출</button>
     </form>
 
     <script>
