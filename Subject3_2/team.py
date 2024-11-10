@@ -22,9 +22,12 @@ def result():
     student_numbers = request.form.getlist('StudentNumber[]')
     role = request.form.getlist('role[]')
     gender = request.form.getlist('gender[]')
+    
+    # 성공 메시지 추가
+    success_message = "데이터가 성공적으로 제출되었습니다!"
 
     # 데이터를 템플릿으로 전달하여 출력 페이지 생성
-    return render_template('result.html', students=zip(name, major, student_numbers,role,gender))
+    return render_template('result.html', students=zip(name, major, student_numbers, role, gender), message=success_message)
 
 @app.route('/contact')
 def contact_info():

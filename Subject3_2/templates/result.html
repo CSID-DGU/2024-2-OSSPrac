@@ -81,6 +81,19 @@
             font-size: 18px;
             font-weight: bold;
         }
+
+        /* 알림 메시지 스타일 */
+        .alert-message {
+          background-color: #dff0d8; /* 연한 초록색 배경 */
+          border-color: #d6e9c6; /* 테두리 색상 */
+          color: #3c763d; /* 텍스트 색상 */
+          padding: 15px;
+          margin-bottom: 20px;
+          border-radius: 4px;
+          text-align:center;
+          font-size :18px;
+          font-weight:bold;
+        }
         /*여기까지*/
 
     </style>
@@ -99,6 +112,13 @@
         <div class="orange-box"></div>
         <span class="header-text">OSSPrac Team3 : SourceTong</span>
     </div>
+
+    <!-- 알림 메시지 표시 -->
+    {% if message %}
+      <div class="alert-message">
+          {{ message }}
+      </div>
+    {% endif %}
 
     <h1 style="text-align: center">학생 정보 출력</h1>
     <div class="container">
