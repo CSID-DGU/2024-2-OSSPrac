@@ -20,7 +20,7 @@
             text-align: center;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        h1, h3, h5 {
+        h1, h2, h3, h5 {
             text-align: center;
         }
 
@@ -49,16 +49,36 @@
             font-weight: bold;
         }
         /*여기까지*/
+
+        p.name {
+            font-size: 30px;
+            font-weight: 700;
+            margin: 5px 0;
+            color: #444;
+        }
+        p.role {
+            font-size: 21px;
+            font-weight: 570;
+            margin: 5px 0;
+            color: #555;
+        }
+        p.info {
+            margin: 5px 0;
+            color: #777;
+            font-size: 16px;
+        }
     </style>
     <script>
         function showContactInfo() {
-            alert("긴급전화: 010-1234-5678");
+            alert("긴급연락: 지승우 swoo64@gdu.co.kr");
         }
         function openContactPage() {
             window.open("/contact", "contactPage", "width=600,height=400");
         }
         function openInputPage() {
-            window.open("/input", "InputPage", "width=800,height=600");
+            if (confirm("Team3 SourceTong 구성원이면 계속 진행해주세요.")) {
+                window.open("/input", "InputPage", "width=800,height=600");
+            }
         }
     </script>
 </head>
@@ -69,14 +89,41 @@
         <span class="header-text">OSSPrac Team3 : SourceTong</span>
     </div>
 
-    <h1>학생 정보 출력</h1>
+    <!-- 음악 삽입 -->
+    <audio id="myAudio" controls>
+        <source id="audioSource" src="" type="audio/mpeg">
+        에러 : 당신의 브라우저는 오디오 태그를 지원하지 않습니다.
+    </audio>
+    <br>
+    <label for="musicSelect"><strong>Free SourceTong music play list</strong></label>
+    <br>
+    <select id="musicSelect" onchange="playSelectedMusic()">
+        <option value="" disabled selected>음악을 선택하세요</option>
+        <option value="https://cdn.pixabay.com/audio/2024/10/26/audio_00a1d6db0d.mp3">Midnight Quirk</option>
+        <option value="https://cdn.pixabay.com/audio/2024/10/25/audio_d2b0d3f542.mp3">relaxing piano music</option>
+        <option value="https://cdn.pixabay.com/audio/2024/10/28/audio_6438122991.mp3">Emotional Piano Music</option>
+    </select>
+    <script>
+        function playSelectedMusic() {
+            var audioElement = document.getElementById('myAudio');
+            var audioSource = document.getElementById('audioSource');
+            var selectedMusic = document.getElementById('musicSelect').value;
+            
+            audioSource.src = selectedMusic; // 선택된 음악의 URL로 소스 변경
+            audioElement.load(); // 새로운 소스를 로드
+            audioElement.play(); // 음악 재생
+        }
+    </script>
+
+    <h1>OSSPrac Team3 SourceTong</h1>
+    <h2>팀원 정보 출력</h2>
     <div class="container">
         <div class="student-block">
-            <p><strong>역할:</strong> </p>
-            <p><strong>이름:</strong> </p>
-            <p><strong>학과:</strong></p>
-            <p><strong>학번:</strong> </p>
-            <p><strong>성별:</strong></p>
+            <p class="role"><strong>역할:</strong> </p>
+            <p class="name"><strong>이름:</strong> </p>
+            <p class="info"><strong>성별:</strong></p>
+            <p class="info"><strong>학과:</strong></p>
+            <p class="info"><strong>학번:</strong> </p>
         </div>        
     </div>
     <h3> 팀 구성원 정보 입력 페이지 <button onclick="openInputPage()"> 이동 </button> </h3>
