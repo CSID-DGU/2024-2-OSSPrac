@@ -58,7 +58,7 @@
 
     <script>
         function showContactInfo() {
-            alert("긴급전화: 010-1234-5678");
+            alert("긴급연락: 지승우 swoo64@gdu.co.kr");
         }
         function openContactPage() {
             window.open("/contact", "contactPage", "width=600,height=400");
@@ -81,12 +81,12 @@
                     <option value="팀원">팀원</option>
                 </select></p>
                 <p>이름: <input type="text" name="name[]" style="background-color: #f0f8ff;" required></p>
-                <p>학과: <input type="text" name="major[]" style="background-color: #f0f8ff;" required></p>
-                <p>학번: <input type="text" name="StudentNumber[]" style="background-color: #f0f8ff;" required></p>
                 <p>성별: <select name="gender[]">
                     <option value="여성">여성</option>
                     <option value="남성">남성</option>
                 </select></p>
+                <p>학과: <input type="text" name="major[]" style="background-color: #f0f8ff;" required></p>
+                <p>학번: <input type="text" name="StudentNumber[]" style="background-color: #f0f8ff;" required></p>
             </div>
         </div>
         <button type="button" onclick="addPerson()">추가</button>
