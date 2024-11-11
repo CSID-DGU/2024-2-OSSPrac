@@ -50,11 +50,18 @@
         /*여기까지 폰트 변경 항목*/
 
         /*이미지를 동그랗게*/
-        .student-block img {
+        .profile_img {
             border-radius: 50%; /* 이미지가 동그랗게 표시됩니다 */
             object-fit: cover;
             width: 150px; /* 원하는 크기로 조절하세요 */
             height: 150px; /* 원하는 크기로 조절하세요 */
+        }
+
+        /*성별 이미지*/
+        .gender_img {
+            width: 20px;
+            height: 20px;
+            margin-top: 10px;
         }
 
         footer {
@@ -125,24 +132,33 @@
         {% for name, major, student_number, role, gender in students %}
             <div class="student-block">
                 
+                <p class="role">{{ role }}</p>
+                <p class="name">{{ name }}</p>
+
                 <!--역할과 성별에 따른 사진 출력-->
                 {% if role == '팀장' and gender == '여성' %}
-                    <img src="https://i.namu.wiki/i/l9JWhPivO-KKFbsrt4fEwBh-KCMDLsmA1f93kmd_lJLNnPxmZHmU7GoARSDXJJ4atDBU_dDKQcM8s93h-H_PxQ.svg" alt="사진1" width="200" height="200">
+                    <img class="profile_img" src="https://i.namu.wiki/i/l9JWhPivO-KKFbsrt4fEwBh-KCMDLsmA1f93kmd_lJLNnPxmZHmU7GoARSDXJJ4atDBU_dDKQcM8s93h-H_PxQ.svg" alt="사진1" width="200" height="200">
                 {% elif role == '팀장' and gender == '남성' %}
-                    <img src="https://lh3.googleusercontent.com/proxy/J4Ly4jjnTzGj24-vIxym4l729OwQd0jDR66DP4Jh_Qquju70-B5N24Zebl9_TuVuTy9ZJYKkM0Tvtow7Q7jexSuEcJFGFmf8vcYxxvumMov4jhGAkVFJfpDv6NdP" alt="사진2" width="200" height="200">
+                    <img class="profile_img" src="https://lh3.googleusercontent.com/proxy/J4Ly4jjnTzGj24-vIxym4l729OwQd0jDR66DP4Jh_Qquju70-B5N24Zebl9_TuVuTy9ZJYKkM0Tvtow7Q7jexSuEcJFGFmf8vcYxxvumMov4jhGAkVFJfpDv6NdP" alt="사진2" width="200" height="200">
                 {% elif role == '팀원' and gender == '여성' %}
-                    <img src="https://lh3.googleusercontent.com/proxy/XJ8NuLSdNBYXePM_v6m1GXy9s6Asaw50TVvfuwksEOetg-GCo2CZ5RHyHmKxAUFwUDU0WFmnTDX3t47yGkE7pR5fPcsvOJUzIHBjwfahirrbRIxQEeBfAm-fjwU1" alt="사진3" width="200" height="200">
+                    <img class="profile_img" src="https://lh3.googleusercontent.com/proxy/XJ8NuLSdNBYXePM_v6m1GXy9s6Asaw50TVvfuwksEOetg-GCo2CZ5RHyHmKxAUFwUDU0WFmnTDX3t47yGkE7pR5fPcsvOJUzIHBjwfahirrbRIxQEeBfAm-fjwU1" alt="사진3" width="200" height="200">
                 {% elif role == '팀원' and gender == '남성' %}
-                    <img src="https://lh3.googleusercontent.com/proxy/PVBaqkQu38nQN4hfkMWGaimbqQtNlfITnSe6FHTFb96ixQT7a_F0-PnAdA4L0eHSmYlu_YiunJxCC8DEy12HgjvVPkrEt5J15uhh1EcURWaSfy_MY0BY0p6Ie-Pf" alt="사진4" width="200" height="200">
+                    <img class="profile_img" src="https://lh3.googleusercontent.com/proxy/PVBaqkQu38nQN4hfkMWGaimbqQtNlfITnSe6FHTFb96ixQT7a_F0-PnAdA4L0eHSmYlu_YiunJxCC8DEy12HgjvVPkrEt5J15uhh1EcURWaSfy_MY0BY0p6Ie-Pf" alt="사진4" width="200" height="200">
                 {% else %}
                     <p><strong>사진:</strong> 사진이 없습니다.</p>
                 {% endif %}
 
-                <p class="name">이름:</strong> {{ name }}</p>
-                <p class="role">역할:</strong> {{ role }}</p>
-                <p class="info">학과:</strong> {{ major }}</p>
-                <p class="info">학번:</strong> {{ student_number }}</p>
-                <p class="info">성별:</strong> {{ gender }}</p>
+                <br>
+                {% if gender == '여성' %}
+                    <img class="gender_img" src="https://drive.google.com/thumbnail?id=1CsMiqsRLPBA8mQ_bzYdTKRx-ztg2r5oK" alt="여성">
+                {% elif gender == '남성' %}
+                    <img class="gender_img" src="https://drive.google.com/thumbnail?id=1vhXNVPA597XU-87IekQKDkYBL0juHjD8" alt="남성">
+                {% else %}
+                    <p>성별이 입력되지 않았습니다.</p>
+                {% endif %}
+
+                <p class="info">{{ major }}</p>
+                <p class="info">{{ student_number }}</p>
 
             </div>
         {% endfor %}
