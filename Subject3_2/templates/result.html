@@ -129,7 +129,7 @@
 
     <h1 style="text-align: center">팀원 정보 출력</h1>
     <div class="container">
-        {% for name, major, student_number, role, gender in students %}
+        {% for name, major, student_number, role, gender, email in students %}
             <div class="student-block">
                 
                 <p class="role">{{ role }}</p>
@@ -159,6 +159,7 @@
 
                 <p class="info">{{ major }}</p>
                 <p class="info">{{ student_number }}</p>
+                <p class="info">{{ email }}</p>
 
             </div>
         {% endfor %}

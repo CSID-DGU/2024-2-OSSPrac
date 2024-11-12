@@ -73,7 +73,7 @@
     </div>
 
     <h1>팀원 정보 입력</h1>
-    <form action="/result" method="POST" id="studentForm">
+    <form action="/result" method="POST" id="studentForm" onsubmit="combineEmails()">
         <div id="personContainer">
             <div class="person-block">
                 <p>역할: <select name="role[]">
@@ -87,6 +87,15 @@
                 </select></p>
                 <p>학과: <input type="text" name="major[]" style="background-color: #f0f8ff;" required></p>
                 <p>학번: <input type="text" name="StudentNumber[]" style="background-color: #f0f8ff;" required></p>
+                <p>이메일:
+                    <input type="text" name="email_id[]" style="background-color: #f0f8ff;" required> @ 
+                    <select name="email_domain[]" required>
+                        <option value="">-선택-</option>
+                        <option value="dgu.ac.kr">dgu.ac.kr</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="gmail.com">gmail.com</option>
+                    </select>
+                </p>
             </div>
         </div>
         <button type="button" onclick="addPerson()">추가</button>
@@ -107,16 +116,48 @@
                     <option value="팀원">팀원</option>
                 </select></p>
                 <p>이름: <input type="text" name="name[]" required></p>
-                <p>학과: <input type="text" name="major[]" required></p>
-                <p>학번: <input type="text" name="StudentNumber[]" required></p>
                 <p>성별: <select name="gender[]">
                     <option value="여성">여성</option>
                     <option value="남성">남성</option>
                 </select></p>
+                <p>학과: <input type="text" name="major[]" required></p>
+                <p>학번: <input type="text" name="StudentNumber[]" required></p>
+                <p>이메일:
+                    <input type="text" name="email_id[]" style="background-color: #f0f8ff;" required> @ 
+                    <select name="email_domain[]" required>
+                        <option value="">-선택-</option>
+                        <option value="dgu.ac.kr">dgu.ac.kr</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="gmail.com">gmail.com</option>
+                    </select>
+                </p>
             `;
 
             // 입력 블록을 personContainer에 추가
             container.appendChild(personBlock);
+
+            
+        }
+
+        // 이메일 아이디와 도메인 합치기
+        function combineEmails() {
+            const emailIds = document.getElementsByName("email_id[]");
+            const emailDomains = document.getElementsByName("email_domain[]");
+
+            for (let i = 0; i < emailIds.length; i++) {
+                const emailId = emailIds[i].value;
+                const emailDomain = emailDomains[i].value;
+
+                // 이메일 ID와 도메인을 결합하여 hidden input에 저장
+                if (emailId && emailDomain) {
+                    const email = emailId + "@" + emailDomain;
+                    let emailInput = document.createElement("input");
+                    emailInput.type = "hidden";
+                    emailInput.name = "email[]";
+                    emailInput.value = email;
+                    document.getElementById("studentForm").appendChild(emailInput);
+                }
+            }
         }
     </script>
 
