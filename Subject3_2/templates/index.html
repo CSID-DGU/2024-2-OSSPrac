@@ -67,7 +67,20 @@
             color: #777;
             font-size: 16px;
         }
+        /* 음악플레이어 스타일 지정 */
+        #musicPlayer {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ffffff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
     </style>
+
     <script>
         function showContactInfo() {
             alert("긴급연락: 지승우 swoo64@gdu.co.kr");
@@ -90,19 +103,22 @@
     </div>
 
     <!-- 음악 삽입 -->
-    <audio id="myAudio" controls>
-        <source id="audioSource" src="" type="audio/mpeg">
-        에러 : 당신의 브라우저는 오디오 태그를 지원하지 않습니다.
-    </audio>
-    <br>
-    <label for="musicSelect"><strong>Free SourceTong music play list</strong></label>
-    <br>
-    <select id="musicSelect" onchange="playSelectedMusic()">
-        <option value="" disabled selected>음악을 선택하세요</option>
-        <option value="https://cdn.pixabay.com/audio/2024/10/26/audio_00a1d6db0d.mp3">Midnight Quirk</option>
-        <option value="https://cdn.pixabay.com/audio/2024/10/25/audio_d2b0d3f542.mp3">relaxing piano music</option>
-        <option value="https://cdn.pixabay.com/audio/2024/10/28/audio_6438122991.mp3">Emotional Piano Music</option>
-    </select>
+    <div id="musicPlayer">
+        <audio id="myAudio" controls>
+            <source id="audioSource" src="" type="audio/mpeg">
+            에러 : 당신의 브라우저는 오디오 태그를 지원하지 않습니다.
+        </audio>
+        <br>
+        <label for="musicSelect"><strong>Free SourceTong music play list</strong></label>
+        <br>
+        <select id="musicSelect" onchange="playSelectedMusic()">
+            <option value="" disabled selected>음악을 선택하세요</option>
+            <option value="https://cdn.pixabay.com/audio/2024/10/26/audio_00a1d6db0d.mp3">Midnight Quirk</option>
+            <option value="https://cdn.pixabay.com/audio/2024/10/25/audio_d2b0d3f542.mp3">relaxing piano music</option>
+            <option value="https://cdn.pixabay.com/audio/2024/10/28/audio_6438122991.mp3">Emotional Piano Music</option>
+        </select>
+    </div>
+    
     <script>
         function playSelectedMusic() {
             var audioElement = document.getElementById('myAudio');
@@ -115,6 +131,7 @@
         }
     </script>
 
+    <h2 style="color: #555;">2024-2</h2>
     <h1>OSSPrac Team3 SourceTong</h1>
     <h2>팀원 정보 출력</h2>
     <div class="container">
