@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+   <body>
+      <table border = "1"> <!-- 표를 생성함 -->
+        <!-- 표를 구성하는 값들은 result라는 parameter에서 가져옴 -->
+        <caption><b>학생 정보</b></caption>
+        {% for key, value in result.items() %} 
+            <tr>
+               <th> {{ key }} </th> <!-- key부분(인덱싱)을 표 왼쪽에 출력-->
+               <td> {{ value }} </td> <!-- value부분(값)을 표 오른쪽에 출력-->
+            </tr>
+        {% endfor %}
+     </table> <!-- 표 생성 끝 -->
+   </body>
+</html>

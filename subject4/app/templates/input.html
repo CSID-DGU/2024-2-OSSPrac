@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <form action="/result" method="POST">
+        <p>Name <input type='text' name='name'></p>
+        <p>Student Number<input type='text' id='StudentNumber' name='StudentNumber' /></p>
+        
+        <p>Gender</p>
+        <p>
+        <label><input type = "radio" value = "Male"  name = "gender"/>Male</label>
+        <label><input type = "radio" value = "Female"  name = "gender"/>Female</label>
+        </p>
+
+        <p>Major <input type='text' name='major'></p>
+        
+        <p> Programming Languages</p>
+        <p>
+            Python<input type="checkbox" name="languages" value="Python" checked>
+            Java<input type="checkbox" name="languages" value="Java">
+            HTML<input type="checkbox" name="languages" value="HTML">
+            C++<input type="checkbox" name="languages" value="C++">
+        </p>
+
+        <p>Email <input type='text' name='Email'>@<select name='Email'>
+            <option value="naver.com">naver.com</option>
+            <option value="gmail.com">gmail.com</option>
+        </select></p>
+
+        <button type='submit' name='submit' value='submit'>submit</button>
+    </form>
+</body>
+</html>
