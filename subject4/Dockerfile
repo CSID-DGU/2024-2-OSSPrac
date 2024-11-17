@@ -1,5 +1,2 @@
-FROM python:3.13
-WORKDIR /app
+FROM python:3.9
 COPY ./app /app
-RUN pip install flask uwsgi
-CMD ["uwsgi", "--ini", "uwsgi.ini"]
