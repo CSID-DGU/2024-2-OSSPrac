@@ -1,32 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀원 정보 입력</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .person-block {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        input[type="text"]:focus {
+            transform: scale(1.5); /* 창을 몇배 크게 확대할것인지 */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        footer {
+            background-color: #f4953d; /* 주황색 배경 */
+            padding: 10px;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        /*왼쪽 위 상단 팀명 출력 관련*/
+        .header-point {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+        }
+        .orange-box {
+            width: 20px;
+            height: 20px;
+            background-color: #f4953d; /* 주황색 */
+            margin-right: 10px;
+        }
+        .header-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* 제출 버튼 스타일 추가 */
+        input[type=submit] {
+          background-color: #4CAF50; /* 기본 배경색 초록색 */
+          color: white; /* 텍스트 색상 흰색 */
+          border: none; /* 테두리 제거 */
+          padding: 10px 20px; /* 패딩 추가 */
+          cursor: pointer; /* 마우스 커서 포인터로 변경 */
+      }
+        /*여기까지*/
+    </style>
+
+    <script>
+        function showContactInfo() {
+            alert("긴급연락: 지승우 swoo64@gdu.co.kr");
+        }
+        function openContactPage() {
+            window.open("/contact", "contactPage", "width=600,height=400");
+        }
+    </script>
+</head>
 <body>
-    <form action="/result" method="POST">
-        <p>Name <input type='text' name='name'></p>
-        <p>Student Number<input type='text' id='StudentNumber' name='StudentNumber' /></p>
-        
-        <p>Gender</p>
-        <p>
-        <label><input type = "radio" value = "Male"  name = "gender"/>Male</label>
-        <label><input type = "radio" value = "Female"  name = "gender"/>Female</label>
-        </p>
+    <!--왼쪽 위 팀명 출력-->
+    <div class="header-point">
+        <div class="orange-box"></div>
+        <span class="header-text">OSSPrac Team3 : SourceTong</span>
+    </div>
 
-        <p>Major <input type='text' name='major'></p>
-        
-        <p> Programming Languages</p>
-        <p>
-            Python<input type="checkbox" name="languages" value="Python" checked>
-            Java<input type="checkbox" name="languages" value="Java">
-            HTML<input type="checkbox" name="languages" value="HTML">
-            C++<input type="checkbox" name="languages" value="C++">
-        </p>
-
-        <p>Email <input type='text' name='Email'>@<select name='Email'>
-            <option value="naver.com">naver.com</option>
-            <option value="gmail.com">gmail.com</option>
-        </select></p>
-
-        <button type='submit' name='submit' value='submit'>submit</button>
+    <h1>팀원 정보 입력</h1>
+    <form action="/result" method="POST" id="studentForm" onsubmit="combineEmails()">
+        <div id="personContainer">
+            <div class="person-block">
+                <p>역할: <select name="role[]">
+                    <option value="팀장">팀장</option>
+                    <option value="팀원">팀원</option>
+                </select></p>
+                <p>이름: <input type="text" name="name[]" style="background-color: #f0f8ff;" required></p>
+                <p>성별: <select name="gender[]">
+                    <option value="여성">여성</option>
+                    <option value="남성">남성</option>
+                </select></p>
+                <p>학과: <input type="text" name="major[]" style="background-color: #f0f8ff;" required></p>
+                <p>학번: <input type="text" name="StudentNumber[]" style="background-color: #f0f8ff;" required></p>
+                <p>이메일:
+                    <input type="text" name="email_id[]" style="background-color: #f0f8ff;" required> @ 
+                    <select name="email_domain[]" required>
+                        <option value="">-선택-</option>
+                        <option value="dgu.ac.kr">dgu.ac.kr</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="gmail.com">gmail.com</option>
+                    </select>
+                </p>
+            </div>
+        </div>
+        <button type="button" onclick="addPerson()">추가</button>
+        <button type="submit" style="background-color: #4CAF50; color: white;">제출</button>
     </form>
+
+    <script>
+        // 새 입력 필드를 추가하는 함수
+        function addPerson() {
+            const container = document.getElementById("personContainer");
+
+            // 새로운 사람 정보를 위한 입력 블록 생성
+            const personBlock = document.createElement("div");
+            personBlock.className = "person-block";
+            personBlock.innerHTML = `
+                <p>역할: <select name="role[]">
+                    <option value="팀장">팀장</option>
+                    <option value="팀원">팀원</option>
+                </select></p>
+                <p>이름: <input type="text" name="name[]" required></p>
+                <p>성별: <select name="gender[]">
+                    <option value="여성">여성</option>
+                    <option value="남성">남성</option>
+                </select></p>
+                <p>학과: <input type="text" name="major[]" required></p>
+                <p>학번: <input type="text" name="StudentNumber[]" required></p>
+                <p>이메일:
+                    <input type="text" name="email_id[]" style="background-color: #f0f8ff;" required> @ 
+                    <select name="email_domain[]" required>
+                        <option value="">-선택-</option>
+                        <option value="dgu.ac.kr">dgu.ac.kr</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="gmail.com">gmail.com</option>
+                    </select>
+                </p>
+            `;
+
+            // 입력 블록을 personContainer에 추가
+            container.appendChild(personBlock);
+
+            
+        }
+
+        // 이메일 아이디와 도메인 합치기
+        function combineEmails() {
+            const emailIds = document.getElementsByName("email_id[]");
+            const emailDomains = document.getElementsByName("email_domain[]");
+
+            for (let i = 0; i < emailIds.length; i++) {
+                const emailId = emailIds[i].value;
+                const emailDomain = emailDomains[i].value;
+
+                // 이메일 ID와 도메인을 결합하여 hidden input에 저장
+                if (emailId && emailDomain) {
+                    const email = emailId + "@" + emailDomain;
+                    let emailInput = document.createElement("input");
+                    emailInput.type = "hidden";
+                    emailInput.name = "email[]";
+                    emailInput.value = email;
+                    document.getElementById("studentForm").appendChild(emailInput);
+                }
+            }
+
+            // // 원래 창을 'result.html'로 변경하고 현재 팝업 닫기
+            // if (window.opener) {
+            //     window.opener.location.href = "result.html";
+            //     window.close();
+            // } else {
+            //     alert("기존 페이지를 찾을 수 없습니다.")
+            // }
+        }
+    </script>
+
+    <footer>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
+                <button onclick="openContactPage()"> 팀 입력정보</button> </h5>
+            <!--누르면 github repo페이지로 이동-->
+            <a href="https://github.com/Seungwoo-JI64/2024-2-OSSPrac-sourcetong-03" target="_blank">
+                <img src="https://blog.kakaocdn.net/dn/GlUAT/btsEndzqV8S/xwC72y8hQ494vepqZUP4k1/img.png" alt="github 로고" style="width: 40px; height: 40px; margin: 0 10px;">
+            </a>
+        </div>
+    </footer>
 </body>
 </html>

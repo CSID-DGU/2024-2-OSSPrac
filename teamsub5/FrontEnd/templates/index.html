@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀원 정보</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .student-block {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3, h5 {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #f4953d; /* 주황색 배경 */
+            padding: 10px;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        /*왼쪽 위 상단 팀명 출력 관련*/
+        .header-point {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+        }
+        .orange-box {
+            width: 20px;
+            height: 20px;
+            background-color: #f4953d; /* 주황색 */
+            margin-right: 10px;
+        }
+        .header-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        /*여기까지*/
+
+        p.name {
+            font-size: 30px;
+            font-weight: 700;
+            margin: 5px 0;
+            color: #444;
+        }
+        p.role {
+            font-size: 21px;
+            font-weight: 570;
+            margin: 5px 0;
+            color: #555;
+        }
+        p.info {
+            margin: 5px 0;
+            color: #777;
+            font-size: 16px;
+        }
+        /* 음악플레이어 스타일 지정 */
+        #musicPlayer {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ffffff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        function showContactInfo() {
+            alert("긴급연락: 지승우 swoo64@gdu.co.kr");
+        }
+        function openContactPage() {
+            window.open("/contact", "contactPage", "width=600,height=400");
+        }
+        function openInputPage() {
+            if (confirm("Team3 SourceTong 팀원이면 계속 진행해주세요.")) {
+                window.open("/input", "InputPage", "width=800,height=600");
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--왼쪽 위 팀명 출력-->
+    <div class="header-point">
+        <div class="orange-box"></div>
+        <span class="header-text">OSSPrac Team3 : SourceTong</span>
+    </div>
+
+    <!-- 음악 삽입 -->
+    <div id="musicPlayer">
+        <audio id="myAudio" controls>
+            <source id="audioSource" src="" type="audio/mpeg">
+            에러 : 당신의 브라우저는 오디오 태그를 지원하지 않습니다.
+        </audio>
+        <br>
+        <label for="musicSelect"><strong>Free SourceTong music play list</strong></label>
+        <br>
+        <select id="musicSelect" onchange="playSelectedMusic()">
+            <option value="" disabled selected>음악을 선택하세요</option>
+            <option value="https://cdn.pixabay.com/audio/2024/10/26/audio_00a1d6db0d.mp3">Midnight Quirk</option>
+            <option value="https://cdn.pixabay.com/audio/2024/10/25/audio_d2b0d3f542.mp3">relaxing piano music</option>
+            <option value="https://cdn.pixabay.com/audio/2024/10/28/audio_6438122991.mp3">Emotional Piano Music</option>
+        </select>
+    </div>
+    
+    <script>
+        function playSelectedMusic() {
+            var audioElement = document.getElementById('myAudio');
+            var audioSource = document.getElementById('audioSource');
+            var selectedMusic = document.getElementById('musicSelect').value;
+            
+            audioSource.src = selectedMusic; // 선택된 음악의 URL로 소스 변경
+            audioElement.load(); // 새로운 소스를 로드
+            audioElement.play(); // 음악 재생
+        }
+    </script>
+
+    <h2 style="color: #555;">2024-2</h2>
+    <h2 style="color:#555">OSSPrac Team3 SourceTong</h2>
+    <h1 style="color:#f4953d">Introduce our Team, SourceTong!</h1>
+    <div class="container">
+        <div class="student-block">
+            <p>이곳은 2024-2 OSSPrac 과목의<br>Team 3: SourceTong 팀 소개 페이지입니다.<br><br>
+                아래 버튼을 눌러 팀원 정보를 입력해주세요.
+            </p>
+        </div>        
+    </div>
+    <h3>팀원 정보 입력 페이지로   <button onclick="openInputPage()"> 이동 </button> </h3><br>
+    <footer>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
+                <button onclick="openContactPage()"> 팀 입력정보</button> </h5>
+            <!--누르면 github repo페이지로 이동-->
+            <a href="https://github.com/Seungwoo-JI64/2024-2-OSSPrac-sourcetong-03" target="_blank">
+                <img src="https://blog.kakaocdn.net/dn/GlUAT/btsEndzqV8S/xwC72y8hQ494vepqZUP4k1/img.png" alt="github 로고" style="width: 40px; height: 40px; margin: 0 10px;">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
