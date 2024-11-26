@@ -1,7 +1,10 @@
-version: "3.0"
+# docker-compose.yml
 
-services:
-  frontapp:
+version: "3.0"                 # docker compose 파일의 버전
+
+services: # 아래는 서비스 정의
+  frontapp:                   # service1의 명칭
+    # 서비스 빌드를 위한 정의 내용
     build: ./FrontEnd
     image: swoo64/frontapp:latest
     ports:
@@ -9,6 +12,7 @@ services:
     depends_on:
       - backapp
 
-  backapp:
+  backapp:                   # service2의 명칭
+    # 서비스 빌드를 위한 정의 내용
     build: ./BackEnd
     image: backapp:latest
