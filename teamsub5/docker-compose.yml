@@ -5,14 +5,13 @@ version: "3.0"                 # docker compose 파일의 버전
 services: # 아래는 서비스 정의
   frontapp:                   # service1의 명칭
     # 서비스 빌드를 위한 정의 내용
-    build: ./FrontEnd
-    image: swoo64/frontapp:latest
+    build: ./FrontEnd #Dockerfile이 위치한 경로
+    image: swoo64/frontapp:latest #빌드된 이미지를 swoo64/frontapp이라는 이름으로 태그, 버전은 latest
+                                  #docker hub에 업로드하기 위해서
     ports:
-      - "80:80"
-    depends_on:
-      - backapp
+      - "80:80" #호스트의 80번 포트를 컨테이너 내부의 80번 포트와 매핑
 
   backapp:                   # service2의 명칭
     # 서비스 빌드를 위한 정의 내용
-    build: ./BackEnd
-    image: backapp:latest
+    build: ./BackEnd #Dockerfile이 위치한 경로
+    image: backapp:latest #빌드된 이미지를 backapp이라는 이름으로 태그, 버전은 latest
