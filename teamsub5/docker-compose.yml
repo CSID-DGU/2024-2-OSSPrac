@@ -1,0 +1,16 @@
+# docker-compose.yml
+
+version: "3.0"
+
+services:
+  frontapp:
+    build: ./FrontEnd
+    image: swoo64/frontapp:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - backapp
+
+  backapp:
+    build: ./BackEnd
+    image: backapp:latest
